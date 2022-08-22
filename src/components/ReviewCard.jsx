@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const ReviewInstance = ({ review }) => {
+const ReviewCard = ({ review }) => {
   const {
     title,
     category,
@@ -13,7 +13,7 @@ const ReviewInstance = ({ review }) => {
     comment_count,
   } = review;
   return (
-    <>
+    <article>
       <h3>{title}</h3>
       <p>
         owned by <strong>{owner}</strong>
@@ -29,8 +29,8 @@ const ReviewInstance = ({ review }) => {
       <Link to="/comments/:comment_id">Comments</Link>
       <button className="vote-btn">Vote</button>
       <hr className="solid" />
-    </>
+    </article>
   );
 };
 
-export default ReviewInstance;
+export default ReviewCard;

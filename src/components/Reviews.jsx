@@ -1,23 +1,23 @@
 import { fetchReviews } from "../api";
-import ReviewInstance from "./ReviewInstance";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import ReviewCard from "./ReviewCard";
 
 const Reviews = () => {
+  const { category } = useParams();
   const [reviews, setReviews] = useState();
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    fetchReviews().then((reviews) => {
+    fetchReviews(category).then((reviews) => {
       setReviews(reviews);
       setIsLoading(false);
     });
-  }, []);
+  }, [category]);
   if (isLoading) return <p>Loading reviews...</p>;
   return (
     <>
       {reviews.map((review) => (
-        <article key={review.review_id}>
-          <ReviewInstance review={review} />
-        </article>
+        <ReviewCard key={review.review_id} review={review} />
       ))}
     </>
   );
