@@ -10,6 +10,18 @@ export const fetchReviews = (category = "") => {
     });
 };
 
+export const fetchReviewById = (review_id) => {
+  return fetch(
+    `https://be-project-nc-games.herokuapp.com/api/reviews/${review_id}`
+  )
+    .then((res) => {
+      return res.json();
+    })
+    .then(({ review }) => {
+      return review;
+    });
+};
+
 export const fetchCategories = () => {
   return fetch("https://be-project-nc-games.herokuapp.com/api/categories")
     .then((res) => {

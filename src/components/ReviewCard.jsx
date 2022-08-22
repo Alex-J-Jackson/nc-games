@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const ReviewCard = ({ review }) => {
   const {
+    review_id,
     title,
     category,
     designer,
@@ -26,7 +28,7 @@ const ReviewCard = ({ review }) => {
       </p>
       <img src={review_img_url} />
       <main className="review-text">{review_body}</main>
-      <Link to="/comments/:comment_id">Comments</Link>
+      <Link to={`/reviews/${review_id}`}>Comments</Link>
       <button className="vote-btn">Vote</button>
       <hr className="solid" />
     </article>
