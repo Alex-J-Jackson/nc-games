@@ -16,7 +16,7 @@ const ReviewSingleWithComments = () => {
   if (isLoading) return <p>Loading review...</p>;
   return (
     <article>
-      <ReviewCard review={review} />
+      <ReviewCard review={review} clicked={true} />
     </article>
   );
 };
