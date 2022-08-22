@@ -31,3 +31,20 @@ export const fetchCategories = () => {
       return categories;
     });
 };
+
+export const updateVotes = (review_id) => {
+  return fetch(
+    `https://be-project-nc-games.herokuapp.com/api/reviews/${review_id}`,
+    {
+      method: "PATCH",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify({ inc_votes: 1 }),
+    }
+  )
+    .then((res) => {
+      return res.json();
+    })
+    .then(({ review }) => {
+      return review;
+    });
+};
