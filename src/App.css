@@ -16,3 +16,7 @@ img {
 .vote-btn {
   margin-left: 20px;
 }
+
+a.hidden {
+  display: none;
+}

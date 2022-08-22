@@ -27,6 +27,9 @@ const NavBar = () => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <NavDropdown title="Categories" id="collasible-nav-dropdown">
+                <LinkContainer to="/">
+                  <NavDropdown.Item>All categories</NavDropdown.Item>
+                </LinkContainer>
                 {isLoading ? (
                   <p>Loading...</p>
                 ) : (
