@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+img {
+  height: 300px;
+  width: 300px;
+  margin-bottom: 10px;
+}
+
+.review-text {
+  margin-bottom: 10px;
+  line-height: 20px;
+}
+
+.vote-btn {
+  margin-left: 20px;
+}
