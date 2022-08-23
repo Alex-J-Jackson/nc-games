@@ -1,7 +1,13 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
+import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
+import { updateVotes } from "../api";
 
 const ReviewCard = ({ review, clicked }) => {
+  const [thumbsUp, setThumbsUp] = useState(false);
+  const [userVote, setUserVote] = useState(0);
+
   const {
     review_id,
     title,
@@ -14,6 +20,15 @@ const ReviewCard = ({ review, clicked }) => {
     votes,
     comment_count,
   } = review;
+  const handleClick = (review_id) => {
+    updateVotes(review_id, userVote === 0 ? 1 : -1).catch(() => {
+      alert("Whoops, something went wrong.");
+    });
+    setThumbsUp((currentThumbsUp) => {
+      return !currentThumbsUp;
+    });
+    setUserVote(userVote === 0 ? 1 : 0);
+  };
   return (
     <article>
       <h3>{title}</h3>
@@ -32,9 +47,17 @@ const ReviewCard = ({ review, clicked }) => {
         className={clicked ? "hidden" : "comments-link"}
         to={`/reviews/${review_id}`}
       >
-        View review and comments
+        See review and comments
       </Link>
-      <button className="vote-btn">Vote</button>
+      <button
+        onClick={() => {
+          handleClick(review_id);
+        }}
+        className="vote-btn"
+      >
+        {thumbsUp ? <ThumbUpAltIcon /> : <ThumbUpOffAltIcon />}
+        {votes + userVote}
+      </button>
       <hr className="solid" />
     </article>
   );
