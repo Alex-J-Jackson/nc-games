@@ -8,6 +8,14 @@ img {
   margin-bottom: 10px;
 }
 
+.review-heading {
+  font-size: 1.8rem;
+}
+
+.comments-heading {
+  font-size: 1.3rem;
+}
+
 .review-text {
   margin-bottom: 10px;
   line-height: 20px;

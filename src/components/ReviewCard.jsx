@@ -31,17 +31,17 @@ const ReviewCard = ({ review, clicked }) => {
   };
   return (
     <article>
-      <h3>{title}</h3>
+      <h1 className="review-heading">{title}</h1>
       <p>
         owned by <strong>{owner}</strong>
         <br />
-        review posted on {created_at}
+        review posted on {created_at.slice(0, -14)}
         <br />
         game-type: {category}
         <br />
         designed by {designer}
       </p>
-      <img src={review_img_url} />
+      <img src={review_img_url} alt={title} />
       <main className="review-text">{review_body}</main>
       <Link
         className={clicked ? "hidden" : "comments-link"}
