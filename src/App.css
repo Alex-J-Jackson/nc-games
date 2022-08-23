@@ -33,3 +33,13 @@ img {
 a.hidden {
   display: none;
 }
+
+.comment-author {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.comment-date {
+  font-size: 0.8rem;
+  color: rgb(95, 94, 94);
+}

@@ -48,3 +48,10 @@ export const fetchCommentsByReviewId = (review_id) => {
       return comments;
     });
 };
+
+export const postComment = (review_id, comment) => {
+  return axios.post(
+    `https://be-project-nc-games.herokuapp.com/api/reviews/${review_id}/comments`,
+    comment
+  );
+};

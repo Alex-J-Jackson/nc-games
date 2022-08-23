@@ -1,13 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { LinkContainer } from "react-router-bootstrap";
 import { fetchCategories } from "../api";
+import { UserContext } from "../contexts/User";
 import DropdownCategory from "./DropdownCategory";
 
 const NavBar = () => {
+  const { user } = useContext(UserContext);
   const [categories, setCategories] = useState();
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -49,13 +51,11 @@ const NavBar = () => {
                 </NavDropdown.Item> */}
             </NavDropdown>
             {/* <Nav.Link href="#features">Features</Nav.Link>
-              <Nav.Link href="#pricing">Pricing</Nav.Link>
-            </Nav>
-            <Nav>
-              <Nav.Link href="#deets">More deets</Nav.Link>
-              <Nav.Link eventKey={2} href="#memes">
-                Dank memes
-              </Nav.Link> */}
+            <Nav.Link href="#pricing">Pricing</Nav.Link> */}
+          </Nav>
+          <Nav>
+            {/* <Nav.Link href="#deets">More deets</Nav.Link> */}
+            <Nav.Link>{user}</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
