@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchCommentsByReviewId } from "../api";
 import CommentCard from "./CommentCard";
+import CommentForm from "./CommentForm";
 
 const Comments = ({ review_id }) => {
   const [comments, setComments] = useState();
@@ -10,7 +11,7 @@ const Comments = ({ review_id }) => {
       setComments(comments);
       setIsLoading(false);
     });
-  }, [review_id]);
+  }, [review_id, comments]);
   return isLoading ? (
     <p>Loading comments...</p>
   ) : (
@@ -22,6 +23,7 @@ const Comments = ({ review_id }) => {
       ) : (
         <p>No comments yet...</p>
       )}
+      <CommentForm review_id={review_id} />
     </>
   );
 };
