@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import { updateVotes } from "../api";
@@ -21,13 +21,13 @@ const ReviewCard = ({ review, clicked }) => {
     comment_count,
   } = review;
   const handleClick = (review_id) => {
-    updateVotes(review_id).then((review) => {
-      console.log(review);
+    updateVotes(review_id, userVote === 0 ? 1 : -1).catch(() => {
+      alert("Whoops, something went wrong.");
     });
-    setUserVote(1);
     setThumbsUp((currentThumbsUp) => {
       return !currentThumbsUp;
     });
+    setUserVote(userVote === 0 ? 1 : 0);
   };
   return (
     <article>
@@ -47,7 +47,7 @@ const ReviewCard = ({ review, clicked }) => {
         className={clicked ? "hidden" : "comments-link"}
         to={`/reviews/${review_id}`}
       >
-        View review and comments
+        See review and comments
       </Link>
       <button
         onClick={() => {

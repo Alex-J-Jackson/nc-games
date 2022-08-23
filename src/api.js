@@ -32,13 +32,13 @@ export const fetchCategories = () => {
     });
 };
 
-export const updateVotes = (review_id) => {
+export const updateVotes = (review_id, vote) => {
   return fetch(
     `https://be-project-nc-games.herokuapp.com/api/reviews/${review_id}`,
     {
       method: "PATCH",
       headers: { "Content-type": "application/json" },
-      body: JSON.stringify({ inc_votes: 1 }),
+      body: JSON.stringify({ inc_votes: vote }),
     }
   )
     .then((res) => {
