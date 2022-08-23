@@ -48,3 +48,15 @@ export const updateVotes = (review_id, vote) => {
       return review;
     });
 };
+
+export const fetchCommentsByReviewId = (review_id) => {
+  return fetch(
+    `https://be-project-nc-games.herokuapp.com/api/reviews/${review_id}/comments`
+  )
+    .then((res) => {
+      return res.json();
+    })
+    .then(({ comments }) => {
+      return comments;
+    });
+};
