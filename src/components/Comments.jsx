@@ -11,8 +11,9 @@ const Comments = ({ review_id }) => {
       setIsLoading(false);
     });
   }, [review_id]);
-  if (isLoading) return <p>Loading comments...</p>;
-  return (
+  return isLoading ? (
+    <p>Loading comments...</p>
+  ) : (
     <>
       {comments.length ? (
         comments.map((comment) => (

@@ -14,8 +14,9 @@ const ReviewSingleWithComments = () => {
       setIsLoading(false);
     });
   }, [review_id]);
-  if (isLoading) return <p>Loading review...</p>;
-  return (
+  return isLoading ? (
+    <p>Loading review...</p>
+  ) : (
     <>
       <article>
         <ReviewCard review={review} clicked={true} />

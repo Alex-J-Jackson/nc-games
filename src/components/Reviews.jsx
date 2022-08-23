@@ -13,8 +13,9 @@ const Reviews = () => {
       setIsLoading(false);
     });
   }, [category]);
-  if (isLoading) return <p>Loading reviews...</p>;
-  return (
+  return isLoading ? (
+    <p>Loading reviews...</p>
+  ) : (
     <>
       {reviews.map((review) => (
         <ReviewCard key={review.review_id} review={review} />
