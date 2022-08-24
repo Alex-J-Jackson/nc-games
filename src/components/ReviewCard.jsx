@@ -18,7 +18,6 @@ const ReviewCard = ({ review, clicked }) => {
     review_img_url,
     created_at,
     votes,
-    comment_count,
   } = review;
   const handleClick = (review_id) => {
     updateVotes(review_id, userVote === 0 ? 1 : -1).catch(() => {
@@ -35,7 +34,7 @@ const ReviewCard = ({ review, clicked }) => {
       <p>
         owned by <strong>{owner}</strong>
         <br />
-        review posted on {created_at.slice(0, -14)}
+        review posted on {new Date(created_at).toLocaleString()}
         <br />
         game-type: {category}
         <br />

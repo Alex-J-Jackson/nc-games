@@ -41,8 +41,8 @@ const Reviews = () => {
           Order
         </InputLabel>
         <NativeSelect onChange={(e) => handleOrder(e)}>
-          <option value="desc">↑</option>
-          <option value="asc">↓</option>
+          <option value="desc">↓</option>
+          <option value="asc">↑</option>
         </NativeSelect>
       </FormControl>
       {reviews.map((review) => (

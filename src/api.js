@@ -55,3 +55,9 @@ export const postComment = (review_id, comment) => {
     comment
   );
 };
+
+export const deleteComment = (comment_id) => {
+  return axios.delete(
+    `https://be-project-nc-games.herokuapp.com/api/comments/${comment_id}`
+  );
+};
