@@ -10,9 +10,14 @@ const Comments = ({ review_id }) => {
   const { user } = useContext(UserContext);
   const [comments, setComments] = useState();
   const [posted, setPosted] = useState(false);
+  const [deletion, setDeletion] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const handleClick = (comment_id) => {
-    deleteComment(comment_id);
+  const handleDeletion = (comment_id) => {
+    setDeletion(true);
+    deleteComment(comment_id).then(() => {
+      setDeletion(false);
+    });
+    alert("Comment deleted.");
     setPosted(false);
   };
   useEffect(() => {
@@ -27,20 +32,21 @@ const Comments = ({ review_id }) => {
     <>
       {comments.length ? (
         comments.map((comment) => (
-          <>
+          <div className="comment-plus-icon">
             <CommentCard key={comment.comment_id} comment={comment} />
-            {comment.author === user && (
+            {!deletion && comment.author === user && (
               <IconButton
+                className="del-comment-btn"
                 aria-label="delete"
                 size="small"
                 onClick={() => {
-                  handleClick(comment.comment_id);
+                  handleDeletion(comment.comment_id);
                 }}
               >
                 <DeleteIcon fontSize="inherit" />
               </IconButton>
             )}
-          </>
+          </div>
         ))
       ) : (
         <p>No comments yet...</p>

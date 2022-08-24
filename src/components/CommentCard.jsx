@@ -16,7 +16,7 @@ const CommentCard = ({ comment }) => {
     "December",
   ];
   return (
-    <div className="comments">
+    <div className="review-comment">
       <p>
         <span className="comment-author">{author}</span>{" "}
         <span className="comment-date">

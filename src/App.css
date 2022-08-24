@@ -51,3 +51,18 @@ a.hidden {
 #order-menu {
   margin: 15px;
 }
+
+/* .comment-plus-icon {
+  display: grid;
+  grid-template-areas: "comment-body" "del-comment-btn";
+  grid-template-columns: 95% 5%;
+}
+
+.review-comment {
+  grid-area: comment-body;
+}
+
+.delete-comment-btn {
+  grid-area: del-comment-btn;
+  margin-right: 100px;
+} */
