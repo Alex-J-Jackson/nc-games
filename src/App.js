@@ -20,6 +20,10 @@ function App() {
             path="/reviews/:review_id"
             element={<ReviewSingleWithComments />}
           />
+          <Route
+            path="/:something/:something"
+            element={<p>Page not found</p>}
+          />
         </Routes>
       </div>
     </UserContext.Provider>

@@ -45,9 +45,13 @@ const Reviews = () => {
           <option value="asc">↑</option>
         </NativeSelect>
       </FormControl>
-      {reviews.map((review) => (
-        <ReviewCard key={review.review_id} review={review} />
-      ))}
+      {reviews.length ? (
+        reviews.map((review) => (
+          <ReviewCard key={review.review_id} review={review} />
+        ))
+      ) : (
+        <p>Sorry, can't find anything in that category!</p>
+      )}
     </>
   );
 };
