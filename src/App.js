@@ -6,6 +6,7 @@ import { useState } from "react";
 import Reviews from "./components/Reviews";
 import NavBar from "./components/NavBar";
 import ReviewSingleWithComments from "./components/ReviewSingleWithComments";
+import ReviewForm from "./components/ReviewForm";
 
 function App() {
   const [user, setUser] = useState("cooljmessy");
@@ -21,6 +22,7 @@ function App() {
             path="/reviews/:review_id"
             element={<ReviewSingleWithComments />}
           />
+          <Route path="/post-review" element={<ReviewForm />} />
           <Route
             path="/:badpage/*"
             element={

@@ -65,6 +65,41 @@ a.hidden {
   margin: 10px 0px;
 }
 
+.review-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.review-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "title . . ."
+    "category . . ."
+    "designer . . ."
+    "review-body review-body review-body review-body";
+  margin-top: 50px;
+  max-width: 800px;
+}
+
+.title {
+  grid-area: title;
+}
+
+.category {
+  grid-area: category;
+}
+
+.designer {
+  grid-area: designer;
+}
+
+.review-body {
+  grid-area: review-body;
+}
+
 @media screen and (min-width: 600px) {
   article {
     max-width: 800px;
