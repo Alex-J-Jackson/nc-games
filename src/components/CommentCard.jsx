@@ -24,11 +24,9 @@ const CommentCard = ({ comment, setPosted }) => {
     "December",
   ];
   const handleDeletion = (comment_id) => {
-    setDeletion(true);
     deleteComment(comment_id).then(() => {
       setDeletion(false);
     });
-    alert("Comment deleted.");
     setPosted(false);
   };
   return (
@@ -39,13 +37,18 @@ const CommentCard = ({ comment, setPosted }) => {
           {months[date.getMonth()]} {date.getFullYear()}
         </span>
         <br />
-        <span className="comment-body">{body}</span>
+        {deletion ? (
+          <span>Deleting comment...</span>
+        ) : (
+          <span className="comment-body">{body}</span>
+        )}
         {!deletion && author === user && (
           <IconButton
             className="del-comment-btn"
             aria-label="delete"
             size="small"
             onClick={() => {
+              setDeletion(true);
               handleDeletion(comment.comment_id);
             }}
           >

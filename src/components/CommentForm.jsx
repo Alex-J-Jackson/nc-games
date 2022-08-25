@@ -7,6 +7,7 @@ import { postComment } from "../api";
 const CommentForm = ({ review_id, posted, setPosted }) => {
   const { user } = useContext(UserContext);
   const [comment, setComment] = useState({ username: user });
+  const [label, setLabel] = useState("Leave comment...");
 
   const handleChange = (e) => {
     setComment({ ...comment, [e.target.id]: e.target.value });
@@ -14,8 +15,10 @@ const CommentForm = ({ review_id, posted, setPosted }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     !comment.body || comment.body.length < 20
-      ? alert("Comments must be at least 20 characters long!")
-      : postComment(review_id, comment) && setPosted(true);
+      ? setLabel("Comments must be at least 20 characters.")
+      : postComment(review_id, comment).then(() => {
+          setComment({ username: user });
+        }) && setPosted(true);
   };
   return (
     <form
@@ -29,7 +32,7 @@ const CommentForm = ({ review_id, posted, setPosted }) => {
         <TextField
           fullWidth
           multiline
-          label="Leave comment..."
+          label={label}
           id="body"
           onChange={(e) => {
             handleChange(e);
