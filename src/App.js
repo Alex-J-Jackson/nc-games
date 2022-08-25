@@ -15,10 +15,20 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/" element={<Reviews />} />
-          <Route path="/:category" element={<Reviews />} />
+          <Route path="/categories/:category" element={<Reviews />} />
           <Route
             path="/reviews/:review_id"
             element={<ReviewSingleWithComments />}
+          />
+          <Route
+            path="/:badpage/*"
+            element={
+              <p>
+                <strong>404</strong>
+                <br />
+                The requested URL was not found on this server.
+              </p>
+            }
           />
         </Routes>
       </div>

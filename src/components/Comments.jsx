@@ -32,8 +32,8 @@ const Comments = ({ review_id }) => {
     <>
       {comments.length ? (
         comments.map((comment) => (
-          <div className="comment-plus-icon">
-            <CommentCard key={comment.comment_id} comment={comment} />
+          <div key={comment.comment_id} className="comment-plus-icon">
+            <CommentCard comment={comment} />
             {!deletion && comment.author === user && (
               <IconButton
                 className="del-comment-btn"

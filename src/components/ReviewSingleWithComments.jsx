@@ -7,22 +7,29 @@ import ReviewCard from "./ReviewCard";
 const ReviewSingleWithComments = () => {
   const [review, setReview] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(false);
   const { review_id } = useParams();
   useEffect(() => {
-    fetchReviewById(review_id).then((review) => {
-      setReview(review);
-      setIsLoading(false);
-    });
+    fetchReviewById(review_id)
+      .then((review) => {
+        setReview(review);
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setError(true);
+      });
   }, [review_id]);
-  return isLoading ? (
+  return error ? (
+    <p>Sorry, no review found with that ID.</p>
+  ) : isLoading ? (
     <p>Loading review...</p>
   ) : (
     <>
-      <article>
+      <div className="review-single">
         <ReviewCard review={review} clicked={true} />
-      </article>
+      </div>
       <h2 className="comments-heading">Comments</h2>
-      <section>
+      <section className="comments-section">
         <Comments review_id={review_id} />
       </section>
     </>
