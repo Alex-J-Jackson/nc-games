@@ -2,7 +2,7 @@
 
 ## About the project
 
-This is my Northcoders frontend project built using React and utilising the server I built for my Northcoders [backend project](https://github.com/Alex-J-Jackson/backend-project-nc-games). The project is a reviews website for boardgames. It includes the functionality to filter reviews by category, sort them, see individual reviews and comments, vote (and remove a vote) for a review and to post and delete comments as a logged in user.
+This is my Northcoders frontend project built using React and utilising the server I built for my Northcoders [backend project](https://github.com/Alex-J-Jackson/backend-project-nc-games). The project is a reviews website for boardgames. It includes the functionality to see all reviews using pagination, filter reviews by category, sort them, see individual reviews and comments, vote (and remove a vote) for a review and to post and delete comments as a logged in user.
 
 ## Run the project
 
