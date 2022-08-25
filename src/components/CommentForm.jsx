@@ -27,7 +27,7 @@ const CommentForm = ({ review_id, posted, setPosted }) => {
       }}
     >
       {posted ? (
-        <TextField fullWidth disabled label="You posted a comment" />
+        <TextField fullWidth disabled label="Comment posted!" />
       ) : (
         <TextField
           fullWidth
