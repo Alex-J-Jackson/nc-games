@@ -58,6 +58,13 @@ a.hidden {
   margin: 15px;
 }
 
+.pagination {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0px;
+}
+
 @media screen and (min-width: 600px) {
   article {
     max-width: 800px;
