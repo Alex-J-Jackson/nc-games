@@ -3,7 +3,7 @@ import { LinkContainer } from "react-router-bootstrap";
 
 const DropdownCategory = ({ slug }) => {
   return (
-    <LinkContainer to={`/${slug}`}>
+    <LinkContainer to={`/categories/${slug}`}>
       <NavDropdown.Item>{slug}</NavDropdown.Item>
     </LinkContainer>
   );

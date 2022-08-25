@@ -13,7 +13,7 @@ const CommentForm = ({ review_id, posted, setPosted }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    comment.body.length < 20
+    !comment.body || comment.body.length < 20
       ? alert("Comments must be at least 20 characters long!")
       : postComment(review_id, comment) && setPosted(true);
   };

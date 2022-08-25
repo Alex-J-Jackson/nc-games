@@ -25,11 +25,11 @@ const ReviewSingleWithComments = () => {
     <p>Loading review...</p>
   ) : (
     <>
-      <article>
+      <div className="review-single">
         <ReviewCard review={review} clicked={true} />
-      </article>
+      </div>
       <h2 className="comments-heading">Comments</h2>
-      <section>
+      <section className="comments-section">
         <Comments review_id={review_id} />
       </section>
     </>
