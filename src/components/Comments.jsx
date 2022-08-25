@@ -1,25 +1,14 @@
-import { useContext, useEffect, useState } from "react";
-import { deleteComment, fetchCommentsByReviewId } from "../api";
-import { IconButton } from "@mui/material";
-import DeleteIcon from "@mui/icons-material/Delete";
+import { useEffect, useState } from "react";
+import { fetchCommentsByReviewId } from "../api";
 import CommentCard from "./CommentCard";
 import CommentForm from "./CommentForm";
-import { UserContext } from "../contexts/User";
 
 const Comments = ({ review_id }) => {
-  const { user } = useContext(UserContext);
   const [comments, setComments] = useState();
   const [posted, setPosted] = useState(false);
-  const [deletion, setDeletion] = useState(false);
+
   const [isLoading, setIsLoading] = useState(true);
-  const handleDeletion = (comment_id) => {
-    setDeletion(true);
-    deleteComment(comment_id).then(() => {
-      setDeletion(false);
-    });
-    alert("Comment deleted.");
-    setPosted(false);
-  };
+
   useEffect(() => {
     fetchCommentsByReviewId(review_id).then((comments) => {
       setComments(comments);
@@ -33,19 +22,7 @@ const Comments = ({ review_id }) => {
       {comments.length ? (
         comments.map((comment) => (
           <div key={comment.comment_id} className="comment-plus-icon">
-            <CommentCard comment={comment} />
-            {!deletion && comment.author === user && (
-              <IconButton
-                className="del-comment-btn"
-                aria-label="delete"
-                size="small"
-                onClick={() => {
-                  handleDeletion(comment.comment_id);
-                }}
-              >
-                <DeleteIcon fontSize="inherit" />
-              </IconButton>
-            )}
+            <CommentCard comment={comment} setPosted={setPosted} />
           </div>
         ))
       ) : (
