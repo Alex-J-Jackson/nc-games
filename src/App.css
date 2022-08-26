@@ -123,23 +123,53 @@ a.hidden {
   grid-template-areas:
     "user-review-image user-review-title"
     "user-review-image user-review-category"
-    "user-review-image user-review-date";
+    "user-review-image user-review-date"
+    "delete-user-review-btn .";
+  text-align: left;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.user-review--deleted {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "user-review-image user-review-title"
+    "user-review-image user-review-category"
+    "user-review-image user-review-date"
+    "delete-user-review-btn .";
+  text-align: left;
+  margin-left: 10px;
+  margin-top: 10px;
+  opacity: 0.5;
 }
 
 .user-review-image {
   grid-area: user-review-image;
+  margin-right: 10px;
 }
 
 .user-review-title {
   grid-area: user-review-title;
+  font-weight: bold;
 }
 
 .user-review-category {
   grid-area: user-review-category;
+  font-size: 0.9rem;
 }
 
 .user-review-date {
   grid-area: user-review-date;
+  font-size: 0.9rem;
+  color: gray;
+}
+
+.delete-user-review-btn {
+  grid-area: delete-user-review-btn;
+  max-width: 100px;
+  justify-self: center;
 }
 
 @media screen and (min-width: 600px) {
@@ -164,5 +194,20 @@ a.hidden {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .user-review {
+    max-width: 600px;
+  }
+
+  .user-review--deleted {
+    max-width: 600px;
+    opacity: 0.5;
+  }
+
+  .user-reviews-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 }

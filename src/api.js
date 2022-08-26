@@ -74,3 +74,9 @@ export const postReview = (review) => {
     review
   );
 };
+
+export const deleteReview = (review_id) => {
+  return axios.delete(
+    `https://be-project-nc-games.herokuapp.com/api/reviews/${review_id}`
+  );
+};

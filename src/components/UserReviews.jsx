@@ -9,9 +9,7 @@ const UserReviews = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    console.log("noo");
     fetchReviews(...Array(4), user).then((reviews) => {
-      console.log(reviews);
       setUserReviews(reviews);
       setIsLoading(false);
     });
@@ -22,7 +20,7 @@ const UserReviews = () => {
   ) : (
     <div className="user-reviews-container">
       {userReviews.map((review) => (
-        <UserReviewCard userReview={review} />
+        <UserReviewCard key={review.review_id} userReview={review} />
       ))}
     </div>
   );
