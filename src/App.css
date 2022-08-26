@@ -115,6 +115,33 @@ a.hidden {
   justify-self: end;
   max-width: 100px;
 }
+
+.user-review {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "user-review-image user-review-title"
+    "user-review-image user-review-category"
+    "user-review-image user-review-date";
+}
+
+.user-review-image {
+  grid-area: user-review-image;
+}
+
+.user-review-title {
+  grid-area: user-review-title;
+}
+
+.user-review-category {
+  grid-area: user-review-category;
+}
+
+.user-review-date {
+  grid-area: user-review-date;
+}
+
 @media screen and (min-width: 600px) {
   article {
     max-width: 800px;

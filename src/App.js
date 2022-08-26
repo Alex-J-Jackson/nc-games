@@ -7,6 +7,7 @@ import Reviews from "./components/Reviews";
 import NavBar from "./components/NavBar";
 import ReviewSingleWithComments from "./components/ReviewSingleWithComments";
 import ReviewForm from "./components/ReviewForm";
+import UserReviews from "./components/UserReviews";
 
 function App() {
   const [user, setUser] = useState("cooljmessy");
@@ -23,6 +24,7 @@ function App() {
             element={<ReviewSingleWithComments />}
           />
           <Route path="/post-review" element={<ReviewForm />} />
+          <Route path="/user/reviews" element={<UserReviews />} />
           <Route
             path="/:badpage/*"
             element={

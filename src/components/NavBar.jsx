@@ -57,7 +57,11 @@ const NavBar = () => {
           </Nav>
           <Nav>
             {/* <Nav.Link href="#deets">More deets</Nav.Link> */}
-            <Nav.Link>{user}</Nav.Link>
+            <NavDropdown title={user}>
+              <LinkContainer to="/user/reviews">
+                <NavDropdown.Item>Your reviews</NavDropdown.Item>
+              </LinkContainer>
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>
