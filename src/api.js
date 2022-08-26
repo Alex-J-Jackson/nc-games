@@ -1,9 +1,15 @@
 const axios = require("axios").default;
 
-export const fetchReviews = (category = "", sort_by, order, page) => {
+export const fetchReviews = (
+  category = "",
+  sort_by = "created_at",
+  order = "desc",
+  page = "1",
+  user = ""
+) => {
   return axios
     .get(
-      `https://be-project-nc-games.herokuapp.com/api/reviews?category=${category}&sort_by=${sort_by}&order=${order}&limit=10&p=${page}`
+      `https://be-project-nc-games.herokuapp.com/api/reviews?category=${category}&user=${user}&sort_by=${sort_by}&order=${order}&limit=10&p=${page}`
     )
     .then(({ data: { reviews } }) => {
       return reviews;
