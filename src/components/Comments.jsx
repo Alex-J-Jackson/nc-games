@@ -6,7 +6,6 @@ import CommentForm from "./CommentForm";
 const Comments = ({ review_id }) => {
   const [comments, setComments] = useState();
   const [posted, setPosted] = useState(false);
-
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -14,7 +13,8 @@ const Comments = ({ review_id }) => {
       setComments(comments);
       setIsLoading(false);
     });
-  }, [review_id, comments]);
+  }, [review_id]);
+
   return isLoading ? (
     <p>Loading comments...</p>
   ) : (
@@ -22,7 +22,12 @@ const Comments = ({ review_id }) => {
       {comments.length ? (
         comments.map((comment) => (
           <div key={comment.comment_id} className="comment-plus-icon">
-            <CommentCard comment={comment} setPosted={setPosted} />
+            <CommentCard
+              comment={comment}
+              review_id={review_id}
+              setComments={setComments}
+              setPosted={setPosted}
+            />
           </div>
         ))
       ) : (
@@ -32,6 +37,8 @@ const Comments = ({ review_id }) => {
         review_id={review_id}
         posted={posted}
         setPosted={setPosted}
+        comments={comments}
+        setComments={setComments}
       />
     </>
   );

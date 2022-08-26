@@ -2,9 +2,9 @@ import { TextField, Button } from "@mui/material";
 import { PostAdd } from "@mui/icons-material";
 import { useContext, useState } from "react";
 import { UserContext } from "../contexts/User";
-import { postComment } from "../api";
+import { fetchCommentsByReviewId, postComment } from "../api";
 
-const CommentForm = ({ review_id, posted, setPosted }) => {
+const CommentForm = ({ review_id, posted, setPosted, setComments }) => {
   const { user } = useContext(UserContext);
   const [comment, setComment] = useState({ username: user });
   const [label, setLabel] = useState("Leave comment...");
@@ -18,6 +18,9 @@ const CommentForm = ({ review_id, posted, setPosted }) => {
       ? setLabel("Comments must be at least 20 characters.")
       : postComment(review_id, comment).then(() => {
           setComment({ username: user });
+          fetchCommentsByReviewId(review_id).then((comments) => {
+            setComments(comments);
+          });
         }) && setPosted(true);
   };
   return (

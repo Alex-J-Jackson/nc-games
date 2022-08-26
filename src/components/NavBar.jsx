@@ -51,7 +51,7 @@ const NavBar = () => {
                 </NavDropdown.Item> */}
             </NavDropdown>
             <LinkContainer to="/post-review">
-              <Nav.Link>New review</Nav.Link>
+              <Nav.Link>New Review</Nav.Link>
             </LinkContainer>
             {/* <Nav.Link href="#pricing">Pricing</Nav.Link> */}
           </Nav>

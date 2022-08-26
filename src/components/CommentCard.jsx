@@ -1,10 +1,10 @@
 import { useContext, useState } from "react";
 import { UserContext } from "../contexts/User";
-import { deleteComment } from "../api";
+import { deleteComment, fetchCommentsByReviewId } from "../api";
 import { IconButton } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-const CommentCard = ({ comment, setPosted }) => {
+const CommentCard = ({ comment, setPosted, review_id, setComments }) => {
   const [deletion, setDeletion] = useState(false);
   const { body, author, created_at } = comment;
   const { user } = useContext(UserContext);
@@ -25,7 +25,9 @@ const CommentCard = ({ comment, setPosted }) => {
   ];
   const handleDeletion = (comment_id) => {
     deleteComment(comment_id).then(() => {
-      setDeletion(false);
+      fetchCommentsByReviewId(review_id).then((comments) => {
+        setComments(comments);
+      });
     });
     setPosted(false);
   };
