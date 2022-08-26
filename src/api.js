@@ -61,3 +61,10 @@ export const deleteComment = (comment_id) => {
     `https://be-project-nc-games.herokuapp.com/api/comments/${comment_id}`
   );
 };
+
+export const postReview = (review) => {
+  return axios.post(
+    "https://be-project-nc-games.herokuapp.com/api/reviews",
+    review
+  );
+};
