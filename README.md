@@ -12,7 +12,16 @@ To run the project locally:
 
 - `git clone https://github.com/Alex-J-Jackson/nc-games.git`
 - `cd nc-games`
-- run `npm install` to install `react`, `react-dom` and `react-scripts`
+- run `npm install` to install
+  - `axios`
+  - `react`
+  - `react-dom`
+  - `react-scripts`
+  - `react-router-dom`
+  - `react-bootstrap bootstrap`
+  - `react-router-bootstrap`
+  - `@mui/material @emotion/react @emotion/styled`
+  - `@mui/icons-material`
 - run `npm start` to serve the app on `localhost:3000`
 
 ### Minimum node version
